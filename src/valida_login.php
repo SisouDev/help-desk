@@ -1,5 +1,10 @@
 <?php 
 
+    session_start();
+    $_SESSION['x'] = "Sessão x";
+    
+    $usuario_autenticado = false;
+
     $usuarios_app = array(
         array('email' => 'adm@test.com.br', 'senha' => '123456'),
         array('email' => 'user@test.com.br', 'senha' => 'abcdef'),
@@ -13,8 +18,6 @@
 
         $email_post = $_POST['email'];
         $senha_post = $_POST['senha'];
-
-        $usuario_autenticado = false;
         
 
         if($usuario_email == $email_post && $usuario_senha == $senha_post){
@@ -25,11 +28,6 @@
             echo "Usuário autenticado.";
         }else{
           header('Location: index.php?login=erro');  
-        };
-        
-        echo "<hr>";
-
-    echo "<br />";
-    
+        };  
     
 ?>
